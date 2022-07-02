@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Site</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="j.js"></script>
+    <script src="img.js"></script>
+  </head>
+  <body>
+    <h1>Hello-Bootstrap</h1>
+<div id="img_container">
+
+  </div>
+    <script>
+      const arr =[1,2,3,4,5,6,7,8,9,10];
+      const Newarr = arr.filter(a=>a%2==0) // 2,4,6,8,10
+                         .map(a=>a%2==0) // true,true,true,true,true
+                        .reduce((a,b)=>a+b);
+      console.log(Newarr);
+
+      // console.log(maparr);
+
+      // const b= arr.reduce((a,b)=>{
+      //   return a+b;
+      // });
+
+      // console.log(b);
+
+      const orders = [
+      {id: 1, price: 100, quantity: 2},
+      {id: 2, price: 200, quantity: 3},
+      {id: 3, price: 300, quantity: 4},
+      {id: 4, price: 400, quantity: 2},
+      {id: 5, price: 500, quantity: 6},
+      {id: 6, price: 600, quantity: 7},
+      {id: 7, price: 700, quantity: 8},
+      {id: 8, price: 800, quantity: 2},
+      {id: 9, price: 900, quantity: 10}]
+
+      const ordersnew = orders.filter(order => order.quantity > 2)
+        .map(order => order.price * order.quantity)
+        .reduce((a, b) => a + b);
+
+        console.log(ordersnew);
+
+      // orders.filter(function(order) {
+      //   return order.quantity > 2;
+      // }).map(function(order) {
+      //   return order.price * order.quantity;
+      // }).reduce(function(a, b) {
+      //   return a + b;
+      // });
+    </script>
+  </body>
+</html>
