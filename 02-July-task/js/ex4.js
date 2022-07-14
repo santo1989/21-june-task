@@ -1,69 +1,39 @@
-let ex4 =[
-    {
-        "wing": right,
-        "brain": {
-            "notice": {
-                "song": [
-                    "were",
-                    "want",
-                    "prove"
-                ]
-            },
-            "long": [
-                "help",
-                "treated",
-                "darkness",
-                "said",
-                "understanding"
-            ],
-            "know": {
-                "anybody": {
-                    "muscle": slight,
-                    "brought": [
-                        "spite",
-                        "suppose",
-                        "has"
-                    ]
-                },
-                "wave": "slight spring"
-            }
-        },
-        "rice": null,
-        "took": null,
-        "single": 1402,
-        "opinion": false,
-        "almost": "end sure nobody driving",
-        "visitor": "deep describe"
-    }
+function myFunction4() {
     
-];
+// const options = {
+//     method: 'get',
+//     headers: {
+//       "Content-Type": "application/json",
+//       "x-access-token": "token-value",
+//     }
+//   };
+//   try {
+//     const response = await fetch('https://countriesnow.space/api/v0.1/countries/iso', options);
+//     if (!response.ok) {
+//       const message = 'Error with Status Code: ' + response.status;
+//       throw new Error(message);
+//     }
+//     const data = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.log('Error: ' + err);
+//   }
 
-let app4 = document.querySelector('#demo')
 
-        let domscript4 = ex4.map((item) => {
-            return `<div class="card">
-            <div class="card-body">
-                <h5 class="card-title">${item.single}</h5>
-                <p class="card-text">
-                    <ul>
-                        <li>${item.wing}</li>
-                        <li>${item.brain}</li>
-                        <li>${item.rice}</li>
-                        <li>${item.took}</li>
-                        <li>${item.opinion}</li>
-                        <li>${item.almost}</li>
-                        <li>${item.visitor}</li>
-                    </ul>
-                </p>
-            </div>
-        </div>
-        `;
-        })
+     
 
-      
-       
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://countriesnow.space/api/v0.1/countries/iso');
+xhr.send(null);
 
- function myFunction4() {
-        app4.innerHTML = domscript4.join('');
-        
-      }
+xhr.onreadystatechange = function () {
+  var DONE = 4; // readyState 4 means the request is done.
+  var OK = 200; // status 200 is a successful return.
+  if (xhr.readyState === DONE) {
+    if (xhr.status === OK) {
+      console.log(xhr.responseText); // 'This is the returned text.'
+    } else {
+      console.log('Error: ' + xhr.status); // An error occurred during the request.
+    }
+  }
+}; }

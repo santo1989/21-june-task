@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chart from Fetch with CSV from Zonal Temp</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  </head>
+  <body>
+    <!-- <div id="fetchAPIinCSV"></div> -->
+<canvas id="fetchCSVtoChart" width="700" height="400"></canvas>
+
+
+<script>
+
+
+
+ChartfromCSV();
+
+ async function ChartfromCSV(){
+ const data = await fetchCSV();
+const ctx = document.getElementById('fetchCSVtoChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: data.xs,
+        datasets: [{
+            label: 'Global Average Temperature in Celsius',
+            data: data.ys,
+            fill : false,
+            backgroundColor: 
+                'rgba(255, 99, 132, 0.2)'
+            ,
+            borderColor: 
+                'rgba(255, 99, 132, 1)'
+            ,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+              ticks: {
+                    // Include a degree sign in the ticks
+                    callback: function(value, index, ticks) {
+                        return value + '°';
+                    }
+                }
+            }
+        }
+    }
+});
+}
+
+
+//  fetchCSV().catch((error) => {
+//         console.log('error')
+//         console.error(error)
+//       })
+
+      async function fetchCSV() {
+
+        const xs =[];
+        const ys =[];
+
+        const response = await fetch('CSV/GLB.Ts+dSST.csv')
+        const data = await response.text()
+        // console.log(data);
+
+        const rows = data.split('\n').slice(2)
+        rows.forEach((row) => {
+          const columns = row.split(',')
+          const year = columns[0]
+          xs.push(year);
+          const temp = columns[1]
+          ys.push(parseFloat (temp) + 14);
+          console.log(year, temp)
+        });
+        return { xs, ys };
+      }
+      
+      </script>
+  </body>
+</html>

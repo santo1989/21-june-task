@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch API Image</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid py-2">
+<img src="" alt="" id="fetchAPI">
+    </div>
+<div class="container-fluid py-2">
+    <img src="" alt="" id="fetch_with_await">
+</div>
+
+<script>
+    // fetch API
+  fetch('https://source.unsplash.com/collection/190727/400x400')
+  .then(response => response.blob())
+  .then(blob => {
+    document.getElementById('fetchAPI').src = URL.createObjectURL(blob);
+    });
+
+// fetch API with await (async function)
+
+  async function fetchImage() {
+    const response = await fetch('https://source.unsplash.com/collection/190728/400x400');
+    const blob = await response.blob();
+    document.getElementById('fetch_with_await').src = URL.createObjectURL(blob);
+  }
+  fetchImage().catch(error => console.log(error));
+
+</script>
+</body>
+</html>
