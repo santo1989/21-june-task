@@ -1,0 +1,188 @@
+<head>
+    <title>Dynamic JSON data input</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/redmond/jquery-ui.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-3.8.2/css/ui.jqgrid.css" /> -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+    <!-- <script type="text/javascript" src="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-3.8.2/js/i18n/grid.locale-en.js"></script>
+    <script type="text/javascript" src="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-3.8.2/js/jquery.jqGrid.min.js"></script> -->
+    	<!-- bootstrap 5 & fontawesome CDN -->
+	<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+	<!-- jquery ui -->	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/redmond/jquery-ui.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.13.5/css/ui.jqgrid.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.13.5/js/jquery.jqgrid.min.js"></script>
+
+    <!-- <script type="text/javascript">
+
+        jQuery(document).ready(function () {
+            var mygrid=jQuery("#list"),
+                cmTxtTemplate = {
+                    width:40,
+                    align:"center",
+                    sortable:false,
+                    hidden:true
+                }, currentTemplate = cmTxtTemplate, i,
+                cm = [], maxCol = 30, dummyColumnNamePrefix = "", //"Col. ",
+                clearShrinkToFit = function() {
+                    // save the original value of shrinkToFit
+                    var orgShrinkToFit = mygrid.jqGrid('getGridParam','shrinkToFit');
+                    // set shrinkToFit:false to prevent shrinking
+                    // the grid columns after its showing or hiding
+                    mygrid.jqGrid('setGridParam',{shrinkToFit:false});
+                    return orgShrinkToFit;
+                },
+                setGridWidthAndRestoreShrinkToFit = function(orgShrinkToFit,width) {
+                    // restore the original value of shrinkToFit
+                    mygrid.jqGrid('setGridParam',{shrinkToFit:orgShrinkToFit});
+                    mygrid.jqGrid('setGridWidth',width);
+                },
+                dummyTestRegex = new RegExp(dummyColumnNamePrefix+"(\\d)+"),
+                counter = 1;
+
+            // Add dummy hidden columns. All the columns has the same template
+            for (i=0;i<maxCol;i++) {
+                cm.push({name:dummyColumnNamePrefix+(i+1),template:currentTemplate});
+            }
+
+            mygrid.jqGrid({
+                url:'mytable.json',
+                datatype: "json",
+                // colNames will be set based on the properties for JSON input
+                colModel:cm,
+                height:"auto",
+                rownumbers:true,
+                loadonce:true,
+                gridview: true,
+                rowNum: 10,
+                sortname:"",
+                jsonReader: {
+                    cell: "",
+                    id: function (obj) {
+                        return "id"+counter++;
+                    },
+                    page: function (obj) {
+                        var rows = obj.rows, colModel = mygrid[0].p.colModel,
+                            cmi, width = 0, iFirstDummy, cols, orgShrinkToFit,
+                            showColNames = [], hideColNames = [];
+
+                        if (typeof(rows) === "undefined" || !(rows.length>0)) {
+                            // something wrong need return
+                            return obj.page;
+                        }
+
+                        // find the index of the first dummy column
+                        // in the colModel. If we use rownumbers:true,
+                        // multiselect:true or subGrid:true additional
+                        // columns will be inserted at the begining
+                        // of the colModel
+                        iFirstDummy = -1;
+                        for(i=0;i<colModel.length;i++) {
+                            cmi = colModel[i];
+                            if (dummyTestRegex.test(cmi.name)) {
+                                iFirstDummy = i;
+                                break;
+                            }
+                        }
+                        if (iFirstDummy === -1) {
+                            // something wrong need return
+                            return obj.page;
+                        }
+
+                        orgShrinkToFit = clearShrinkToFit();
+
+                        // we get the first row of the JSON data
+                        cols = rows[0].length;
+
+                        // fill the list of unused columns
+                        for(i=0;i<colModel.length;i++) {
+                            cmi = colModel[i];
+                            if (i<iFirstDummy+cols) {
+                                cmi.width = currentTemplate.width;
+                                showColNames.push(cmi.name);
+                            } else {
+                                hideColNames.push(cmi.name);
+                            }
+                        }
+                        mygrid.jqGrid('showCol',showColNames);
+                        mygrid.jqGrid('hideCol',hideColNames);
+                        setGridWidthAndRestoreShrinkToFit(orgShrinkToFit,
+                            cols*currentTemplate.width);
+
+                        return obj.page;
+                    }
+                }
+            });
+            $("#readJson1").click(function() {
+                mygrid.jqGrid('setGridParam',
+                              {datatype:'json',page:1,url:'mytable.json'})
+                      .trigger('reloadGrid');
+            });
+            // $("#readJson2").click(function() {
+            //     mygrid.jqGrid('setGridParam',
+            //                   {datatype:'json',page:1,url:'Matrix2.json'})
+            //           .trigger('reloadGrid');
+            // });
+        });
+   
+    </script> -->
+</head>
+<body>
+    <fieldset style="float:left">
+        <button id="readJson1" type="button">load one JSON data set (10x7)</button>
+        <!-- <button id="readJson2" type="button">load another JSON data set (15x15)</button> -->
+    </fieldset>
+    <div style="clear:left">
+        <table id="list"></table>
+        <div id="page"></div>
+    </div>
+    <script>
+        $.ajax(
+    {
+    //    type: "POST",
+       url: "mytable.json",
+       data: "",
+       dataType: "json",
+       success: function(result)
+       {
+            colD = result.colData;
+            colN = result.colNames;
+            colM = result.colModel;
+
+            jQuery("#list").jqGrid({
+                jsonReader : {
+                    cell: "",
+                    id: "0"
+                },
+                url: 'mytable.json',
+                datatype: 'jsonstring',
+                // mtype: 'POST',
+                datastr : colD,
+                colNames:colN,
+                colModel :colM,
+                pager: jQuery('#page'),
+                rowNum: 5,
+                rowList: [5, 10, 20, 50],
+                viewrecords: true
+            })
+       },
+       error: function(x, e)
+       {
+            alert(x.readyState + " "+ x.status +" "+ e.msg);   
+       }
+    });
+setTimeout(function() {$("#list").jqGrid('setGridParam',{datatype:'json'}); },50);
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Chart 2</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+  <script src="https://code.highcharts.com/modules/annotations-advanced.js"></script>
+  <script src="https://code.highcharts.com/modules/price-indicator.js"></script>
+  <script src="https://code.highcharts.com/modules/full-screen.js"></script>
+  
+  <script src="https://code.highcharts.com/modules/stock-tools.js"></script>
+  
+  
+
+
+
+</head>
+<body>
+<div id="container" class="chart"></div>
+    
+<script>
+
+Highcharts.getJSON('https://marketdata.tradermade.com/api/v1/timeseries?currency=EURUSD&api_key=siojZjDh7a40sNP8khvJg&start_date=2022-01-01&end_date=2022-03-01&format=split', function (data) {
+
+// split the data set into ohlc and volume
+var ohlc = [],
+    data = data["quotes"]["data"]
+    dataLength = data.length,
+    i = 0;
+
+for (i; i < dataLength; i += 1) {
+    ohlc.push([
+        Number(moment(data[i][0]).format('x')), // the date
+        data[i][1], // open
+        data[i][2], // high
+        data[i][3], // low
+        data[i][4] // close
+    ]);
+
+}
+
+Highcharts.stockChart('container', {
+    yAxis: [{
+        labels: {
+            align: 'center',
+            // rotation:30,
+            overflow: 'left',
+            style:{
+            color:"#666666",
+            cursor:"default",
+            fontSize:"11px",
+            }
+        },
+        showLastLabel: true,
+        resize: {
+            enabled: true
+        }
+    }],
+    tooltip: {
+        shape: 'square',
+        headerShape: 'callout',
+        borderWidth: 0,
+        shadow: false,
+        positioner: function (width, height, point) {
+            var chart = this.chart,
+                position;
+
+            if (point.isHeader) {
+                position = {
+                    x: Math.max(
+                        // Left side limit
+                        chart.plotLeft,
+                        Math.min(
+                            point.plotX + chart.plotLeft - width / 2,
+                            // Right side limit
+                            chart.chartWidth - width - chart.marginRight
+                        )
+                    ),
+                    y: point.plotY
+                };
+            } else {
+                position = {
+                    x: point.series.chart.plotLeft,
+                    y: point.series.yAxis.top - chart.plotTop
+                };
+            }
+
+            return position;
+        }
+    },
+    series: [{
+        type: 'candlestick',
+        id: 'EURUSD-ohlc',
+        name: 'EURUSD Price',
+        data: ohlc
+    }],
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 800
+            },
+            chartOptions: {
+                rangeSelector: {
+                    inputEnabled: false
+                }
+            }
+        }]
+    }
+});
+});
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

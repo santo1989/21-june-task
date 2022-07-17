@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>jqGrid One</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/css/ui.jqgrid.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/jquery.jqgrid.min.js"></script>
+    <script>
+        // $(document).ready(function () {
+        //     $("#grid").jqGrid({
+        //         url: 'data.php',
+        //         datatype: "json",
+        //         colNames: ['Id', 'First Name', 'Last Name', 'Age', 'Edit', 'Delete'],
+        //         colModel: [
+        //             {name: 'id', index: 'id', width: 50, editable: true},
+        //             {name: 'first_name', index: 'first_name', width: 100, editable: true},
+        //             {name: 'last_name', index: 'last_name', width: 100, editable: true},
+        //             {name: 'age', index: 'age', width: 50, editable: true},
+        //             {name: 'edit', index: 'edit', width: 50, editable: true},
+        //             {name: 'delete', index: 'delete', width: 50, editable: true}
+        //         ],
+        //         rowNum: 10,
+        //         rowList: [10, 20, 30],
+        //         pager: '#pager',
+        //         sortname: 'id',
+        //         viewrecords: true,
+        //         sortorder: "desc",
+        //         caption: "Simple jqGrid Example",
+        //         editurl: 'edit.php',
+        //         height: 'auto',
+        //         width: 'auto',
+        //         autowidth: true,
+        //         shrinkToFit: true,
+        //         loadonce: true,
+        //         loadComplete: function () {
+        //             var ids = $("#grid").jqGrid('getDataIDs');
+        //             for (var i = 0; i < ids.length; i++) {
+        //                 $("#grid").jqGrid('setRowData', ids[i], {
+        //                     edit: '<a href="edit.php?id=' + ids[i] + '">Edit</a>',
+        //                     delete: '<a href="delete.php?id=' + ids[i] + '">Delete</a>'
+        //                 });
+        //             }
+        //         }
+        //     });
+        //     $("#grid").jqGrid('navGrid', '#pager', {edit: false, add: false, del: false});
+        // });
+    
+    function getData(){    $.ajax({
+  url: 'https://randomuser.me/api/',
+  dataType: 'json',
+  success: function(data) {
+    console.log(data);
+    users = data;
+  }
+});}
+
+    $(function () {
+        "use strict";
+        $("#grid").jqGrid({
+            colModel: [
+             
+                { name: "first" },
+                { name: "last" }
+            ],
+            data: [
+                { first: "Zinedine", last: "Zidane" },
+                { first: "Oliver", last: "Kahn" },
+                { first: "David", last: "Beckham" },
+                { first: "Lionel", last: "Messi" },
+                { first: "Cristiano", last: "Ronaldo" }
+            ]
+        });
+    });
+   
+    </script>
+</head>
+<body>
+<table id="grid"></table>
+</body>
+</html>

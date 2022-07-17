@@ -1,14 +1,9 @@
-function myFunction22(){
-
-
-    (function () {
-        var userName = "Pondit";
-        function display(name)
-        {
-        alert("ex21.js: " + name);
-        }
-        display(userName);
-        })();
-
-
-};
+function myFunction22() {
+  ;(function () {
+    let userName = 'Pondit'
+    function display(name) {
+      alert('ex21.js: ' + name)
+    }
+    display(userName)
+  })()
+}

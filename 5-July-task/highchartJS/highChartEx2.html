@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example-2</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  </head>
+  <body>
+    <div
+      id="container"
+      style="min-width: 310px; height: 400px; margin: 0 auto"
+    ></div>
+
+    <pre id="csv" style="display: none">
+Country,Population
+      China,1440297825,
+      India,1382345085,
+      United States,331341050
+      Indonesia,274021604
+      Pakistan,221612785
+      Brazil,212821986
+      Nigeria,206984347
+      Bangladesh,164972348,
+      Russia,145945524,</pre
+    >
+    <script>
+      Highcharts.chart('container', {
+        title: {
+          text: 'Top 10 Populated Countries',
+        },
+
+        data: {
+          csv: document.getElementById('csv').innerHTML,
+          complete: function () {
+            console.log(this.csv)
+          },
+        },
+
+        plotOptions: {
+          series: {
+            marker: {
+              enabled: true,
+            },
+          },
+        },
+
+        // series: [{
+        //   lineWidth: 1
+        // }, {
+        //   type: 'line',
+        //   color: '#c4392d',
+        //   negativeColor: '#5679c4',
+        //   fillOpacity: 0.5
+        // }]
+      })
+    </script>
+  </body>
+</html>

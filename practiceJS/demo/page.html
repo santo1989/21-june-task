@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    .color1 {
+        border: 1px solid black;
+    }
+
+    .color2 {
+        border: 1px solid black;
+    }
+
+    .color3 {
+        border: 1px solid black;
+    }
+</style>
+
+<body class="mx-3">
+
+
+    <h2>Header</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div id="div-container-1">
+                Lorem ipsum dolor sit amet.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. A esse corrupti
+                eligendi neque culpa consequatur tenetur illum excepturi inventore adipisci?
+            </div>
+            <button class="btn btn-success col-md-4 mt-3" id="btn-add-1">Add New</button>
+        </div>
+
+        <div class="col-md-4">
+            <div id="div-container-2">
+                Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
+            </div>
+            <button class="btn btn-success col-md-4 mt-3" id="btn-add-2">Add New</button>
+        </div>
+
+        <div class="col-md-4">
+            <div id="div-container-3">
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+            </div>
+            <button class="btn btn-success col-md-4 mt-3" id="btn-add-3">Add New</button>
+        </div>
+
+        <footer>The footer. You can go to the index page.</footer>
+
+
+    </div>
+
+   
+  <script>
+const BtnAdd = document.querySelector("#btn-add-1");
+const DivContainer = document.getElementById("div-container-1");
+
+let paragraph='combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free';
+
+let paragraph1='but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum';
+
+let paragraph2='Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur';
+
+BtnAdd.addEventListener("click", AddNew);
+function AddNew() {
+    DivContainer.classList.add('color1');
+    const newDiv = document.createElement("div");
+    const p = document.createElement('p');
+    p.innerText=paragraph;
+    newDiv.appendChild(p);
+    DivContainer.appendChild(newDiv);
+
+}
+
+const BtnAdd2 = document.querySelector("#btn-add-2");
+const DivContainer2 = document.getElementById("div-container-2");
+
+BtnAdd2.addEventListener("click", function(){
+    {
+    DivContainer2.classList.add('color2');
+    const newDiv2 = document.createElement("div");
+    const p = document.createElement('p');
+    p.innerText = paragraph1;
+    //   console.log("add");
+    newDiv2.appendChild(p);
+
+    DivContainer2.appendChild(newDiv2);
+}
+});
+
+
+const BtnAdd3 = document.querySelector("#btn-add-3");
+const DivContainer3 = document.getElementById("div-container-3");
+
+BtnAdd3.addEventListener("click", AddNew3);
+function AddNew3() {
+    DivContainer3.classList.add('color3');
+    const newDiv3 = document.createElement("div");
+    const p = document.createElement('p');
+    p.innerText = paragraph2;
+    newDiv3.appendChild(p);
+
+    DivContainer3.appendChild(newDiv3);
+}
+  </script>
+</body>
+
+</html>

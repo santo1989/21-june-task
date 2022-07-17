@@ -2108,3 +2108,36 @@ let ex3 = [
 // function myFunction3() {
 //   app3.innerHTML = domscript3.join('')
 // }
+
+// show country list in table from Array
+let table = document.createElement('table')
+let thead = document.createElement('thead')
+let tbody = document.createElement('tbody')
+let tr = document.createElement('tr')
+let td = document.createElement('td')
+let th = document.createElement('th')
+tr.innerHTML = '<th>ID</th><th>Country</th><th>code</th><th>emoji</th><th>Unicode</th><th>Image</th>'
+thead.innerHTML = tr.outerHTML
+let app3 = document.querySelector('#demo')
+  let countryList = ex3.map((country, index) => {
+    return `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${country.name}</td>
+        <td>${country.code}</td>
+        <td>${country.emoji}</td>
+        <td>${country.unicode}</td>
+        <td><img src="${country.flag}" alt="${country.name}"></td>
+      </tr>
+    `
+  }).join('')
+  
+
+
+function myFunction3() {
+  tbody.innerHTML = countryList
+  table.appendChild(thead)
+  table.appendChild(tbody)
+  app3.appendChild(table)
+
+}

@@ -55,7 +55,8 @@
 let app = document.querySelector('#demo')
 
         let domscript = first.map((item) => {
-            return `<div class="card">
+            return `<div class="col-md-3">
+            <div class="card">
             <div class="card-body">
                 <h5 class="card-title">${item.firstName} ${item.lastName}</h5>
                 <p class="card-text">
@@ -81,6 +82,7 @@ let app = document.querySelector('#demo')
                 </p>
             </div>
         </div>
+    </div>
         `;
         })
        

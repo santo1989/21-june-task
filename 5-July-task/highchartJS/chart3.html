@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chart 3</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+  <script src="https://code.highcharts.com/modules/annotations-advanced.js"></script>
+  <script src="https://code.highcharts.com/modules/price-indicator.js"></script>
+  <script src="https://code.highcharts.com/modules/full-screen.js"></script>
+  
+  <script src="https://code.highcharts.com/modules/stock-tools.js"></script>
+  
+  <style>
+
+#chart-one {
+  height: 75%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+  </style>
+
+
+
+</head>
+<body>
+<div class="container" id="chart"></div>
+    <script>
+        const fetchParams = {
+            method: "GET",
+            mode: "cors",
+            cache: "default"
+          };
+          
+          const url = "https://api.coingecko.com/api/v3/exchange_rates";
+          
+          fetch(url, fetchParams)
+            .then(res =>  res.json())
+            .then(data => {
+              console.log(data);
+              // const rates = data.rates;
+              // let rateData = [];
+              // rates.forEach(function(rate) {
+              //   rateData.push([rate.name, parseInt(rate.value)]);
+              // });
+              const chartOneData = {
+                type: "bar",
+                title: {
+                  text: "Fetching data from API",
+                  adjustLayout: true
+                },
+                scaleX: {
+                  item: {
+                    angle: '-45'
+                  }
+                },
+                series: [
+                  {
+                    values: rateData
+                  }
+                ],
+                plotarea: {
+                  margin: 'dynamic'
+                }
+              };
+              zingchart.render({
+                id: "chart",
+                data: chartOneData,
+                height: "100%",
+                width: "100%"
+              });
+            })
+            .catch(err => {
+              console.log("Error: " + err);
+            });
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

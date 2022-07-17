@@ -243,26 +243,57 @@ let ex2 =[
     {name: 'Zambia', code: 'ZM'}, 
     {name: 'Zimbabwe', code: 'ZW'} 
   ];
-
-let app2 = document.querySelector('#demo')
-
-        let domscript2 = ex2.map((item) => {
-            let table = document.createElement('table')
-            let tr = document.createElement('tr')
-            let td = document.createElement('td')
-           let context = document.createTextNode('<option value="'+item.code+'">'+item.name+'</option>')
-            td.appendChild(context)
-            tr.appendChild(td)
-            table.appendChild(tr)
-            return table
-
-        });
-
-       
-
-       
-
+  
  function myFunction2() {
-        app2.innerHTML = domscript2.join('');
+let app2 = document.querySelector('#demo')
+// let table = document.createElement('table')
+// let tr = document.createElement('tr')
+// let td1 = document.createElement('td')
+// let td2 = document.createElement('td')
+// let contextCode = document.createTextNode('Context Code')
+// let contextName = document.createTextNode('Context Name')
+        // let domscript2 = ex2.map((item) => {
+          //   let table = document.createElement('table')
+          //   let tr = document.createElement('tr')
+          //   let td = document.createElement('td')
+          //  let context = document.createTextNode('<option value="'+item.code+'">'+item.name+'</option>')
+          //   td.appendChild(context)
+          //   tr.appendChild(td)
+          //   table.appendChild(tr)
+          //   return table
+for(let i = 0; i < ex2.length; i++){
+  let table = document.createElement('table')
+  let tr = document.createElement('tr')
+  let td = document.createElement('td')
+  let context = document.createTextNode('<td>'+ex2[i].code+'</td>'+'<br />'+'<td>'+ex2[i].name+'</td>')
+  td.appendChild(context)
+  tr.appendChild(td)
+  table.appendChild(tr)
+  app2.appendChild(table)
+
+}
+
+// console.log(table)
+      
         
-      }
+        //   td1.appendChild(contextCode)
+        //   td2.appendChild(contextName)
+        //   tr.appendChild(td1)
+        //   tr.appendChild(td2)
+        //   table.appendChild(tr)
+        //   console.log(table)
+        //   return table
+        // }
+        
+        
+        // );
+
+       
+
+       
+
+
+
+  
+}
+        

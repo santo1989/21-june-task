@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Generate js sentence</title>
+
+  </head>
+  <body>
+ 
+
+    <script type="text/javascript"> 
+
+        
+        uarticle = new Array("The", "A", "One", "Some", "Any"); 
+        noun = new Array("boy", "girl", "dog", "town", "car"); 
+        verb = new Array("drove", "jumped", "ran", "walked", "skipped"); 
+        larticle = new Array("the", "a", "one", "some", "any"); 
+        preposition = new Array("to", "from", "over", "under", "on"); 
+        
+        let rand1 = [Math.floor ( Math.random() * uarticle.length )]; 
+        let rand2 = [Math.floor ( Math.random() * noun.length )]; 
+        let rand3 = [Math.floor ( Math.random() * verb.length )]; 
+        let rand4 = [Math.floor ( Math.random() * larticle.length )]; 
+        let rand5 = [Math.floor ( Math.random() * preposition.length )]; 
+        
+        document.write(uarticle[rand2] + " " + noun[rand2] + " " + verb[rand3] + " " + preposition[rand1] + " " + larticle[rand4] + " " + noun[rand2] + "."); 
+        
+        
+ 
+        </script>
+
+
+  </body>
+</html>
+
+<script>
+
+</script>
