@@ -48,33 +48,41 @@
         //     $("#grid").jqGrid('navGrid', '#pager', {edit: false, add: false, del: false});
         // });
     
-    function getData(){    $.ajax({
-  url: 'https://randomuser.me/api/',
-  dataType: 'json',
-  success: function(data) {
-    console.log(data);
-    users = data;
-  }
-});}
+//     function getData(){    $.ajax({
+//   url: 'https://randomuser.me/api/',
+//   dataType: 'json',
+//   success: function(data) {
+//     console.log(data);
+//     users = data;
+//   }
+// });}
 
-    $(function () {
-        "use strict";
-        $("#grid").jqGrid({
-            colModel: [
+//     $(function () {
+//         "use strict";
+//         $("#grid").jqGrid({
+//             colModel: [
              
-                { name: "first" },
-                { name: "last" }
-            ],
-            data: [
-                { first: "Zinedine", last: "Zidane" },
-                { first: "Oliver", last: "Kahn" },
-                { first: "David", last: "Beckham" },
-                { first: "Lionel", last: "Messi" },
-                { first: "Cristiano", last: "Ronaldo" }
-            ]
-        });
-    });
-   
+//                 { name: "first" },
+//                 { name: "last" }
+//             ],
+//             data: [
+//                 { first: "Zinedine", last: "Zidane" },
+//                 { first: "Oliver", last: "Kahn" },
+//                 { first: "David", last: "Beckham" },
+//                 { first: "Lionel", last: "Messi" },
+//                 { first: "Cristiano", last: "Ronaldo" }
+//             ]
+//         });
+//     });
+//    axious get request
+//     axios.get('https://randomuser.me/api/')
+//     .then(function(response) {
+//       console.log(response);
+//     })
+//     .catch(function(error) {
+//       console.log(error);
+//     });
+
     </script>
 </head>
 <body>

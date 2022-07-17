@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.13.5/js/jquery.jqgrid.min.js"></script>
+	<title>jqGrid-2 from API </title>
 </head>
 <body>
 	<div class="col-sm-12">
@@ -37,16 +38,17 @@
 		let pager_selector = "#grid-pager";              
 
 		jQuery(grid_selector).jqGrid({
-			url:'http://jsonplaceholder.typicode.com/posts',
+			url:'https://jsonplaceholder.typicode.com/comments?postId=1',
 			datatype: "json",
 			height: 'auto',
 			width: 1400,
-			colNames:['ID', 'User ID','Title','Body'],
+			colNames:['Post ID','ID', 'Name','Email','Body'],
 			colModel:[
+			{name:'postId',index:'postId', width:'10%'},	
 			{name:'id',index:'id', width:'10%'},
-			{name:'userId',index:'userId', width:'10%'},
-			{name:'title',index:'title', width:'35%'},
-			{name:'body',index:'body', width:'45%'}          
+			{name:'name',index:'name', width:'10%'},
+			{name:'email',index:'email', width:'30%'},
+			{name:'body',index:'body', width:'40%'}          
 			],
 			loadonce: true,
 			rowNum:10,

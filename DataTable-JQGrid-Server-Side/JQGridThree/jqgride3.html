@@ -18,7 +18,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.13.5/js/jquery.jqgrid.min.js"></script>
     <meta charset="utf-8" />
-    <title>jqGrid Loading Data - JSON Live</title>
+    <title>jqGrid-3 from JSON </title>
 </head>
 <body>
 
@@ -28,15 +28,16 @@
     <script>
         $(document).ready(function () {
             $("#list4").jqGrid({
-                url: 'mytable.json',
+                url: 'js/employee.json',
                 datatype: "json",
-                colNames: ['Id', 'Name', 'Email', 'Salary', 'Country'],
+                colNames: ['Id', 'Name', 'Company', 'City', 'Salary', 'Account'],
                 colModel: [
                     { name: 'id', index: 'id', width: 55 },
                     { name: 'name', index: 'name', width: 90 },
-                    { name: 'email', index: 'email', width: 150 },
+                    { name: 'company', index: 'company', width: 150 },
+                    { name: 'city', index: 'city', width: 80 },
                     { name: 'salary', index: 'salary', width: 80 },
-                    { name: 'country', index: 'country', width: 80 }
+                    { name: 'account', index: 'account', width: 80 }
                 ],
                 rowNum: 10,
                 rowList: [10, 20, 30],
