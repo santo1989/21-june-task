@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/layoutParagraph.js"></script>
+</head>
+<style>
+html,body{margin:0;padding:0}
+body{font: 80% arial,sans-serif;text-align:center}
+p{margin:0 10px 10px}
+/* a{color: #006;padding:10px} */
+div#header h1{background: #EEE;color: #79B30B}
+div#content p{line-height:1.4}
+div#LeftSide{background:#B9CAFF}
+div#RightSide{background:#FF8539}
+div#footer{background: #333;color: #FFF}
+div#footer p{margin:0;padding:5px 10px}
+div#container{margin:0 auto}
+div#content{margin: 0 }
+
+</style>
+
+
+<body>
+    <div class="row">
+        <div class="col text-align-center">
+               <head>
+                         <div id="header"><h1>Header</h1></div>   
+                 </head>
+        </div>
+    </div>
+ 
+  
+    <div id="container">
+        <div class="row">
+            <div class="col-md-3">
+                    <aside  style="display: left">
+                        <div id="LeftSide">
+                            <p><strong> Left side</strong> <br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia blanditiis optio numquam voluptatem maiores qui aliquid beatae, porro minima? Voluptatem eius illum illo. Nisi, provident ipsum totam eum animi dolore voluptas eligendi minima odit nulla perferendis incidunt quod? Vero ex temporibus, ullam deleniti explicabo consequuntur mollitia aliquam incidunt sapiente blanditiis! </p>
+
+                                <div id="leftSide">
+                                   
+                                </div> 
+                                <a class="link-info" onclick="LeftSideExtra()">add new sentence</a>
+                            </div>
+                            
+                    </aside>  
+            </div>
+            <div class="col-md-6">
+            <main>
+                <div id="wrapper">
+                    <div id="content">
+                    <p><strong>Main Content here.</strong> <br /> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, nihil illum soluta iure numquam id, adipisci nostrum harum culpa, distinctio voluptatum maxime eveniet? Quasi expedita ipsam ad hic explicabo in.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, magni iusto nesciunt dolor, dolore nulla, provident quo vel illum facilis facere fugiat delectus est sint vero perspiciatis quasi libero nihil neque ipsa expedita quibusdam! Atque hic sit, rem eius blanditiis dicta quam, dignissimos esse iusto temporibus architecto, illum perspiciatis repudiandae facilis! Magni distinctio delectus voluptas impedit aspernatur, repudiandae, consequuntur veniam odio quibusdam placeat inventore minima. Quo quam dolor distinctio nihil voluptates enim est, suscipit autem necessitatibus quos accusantium minus veniam vero quae corporis reiciendis iusto. Eum beatae quasi reprehenderit maxime, in repellendus aliquam earum voluptate laboriosam ea deleniti voluptatem aut.</p>
+
+                    <div id="MainSide">
+                        
+                    </div>
+                    <a class="link-info" onclick="MainSideExtra()">add new sentence</a>
+                    </div>
+                    </div>
+                </main>
+
+            </div>
+
+            <div class="col-md-3">
+                <aside style="display: right">
+                        <div id="RightSide">
+                    <p><strong> Right Side</strong> <br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium consequatur ullam deserunt fugiat quam aperiam? A fugit blanditiis minima accusantium amet exercitationem cupiditate pariatur fugiat. Unde eligendi odio sint. Adipisci reiciendis, asperiores accusamus doloremque natus incidunt veniam consectetur nisi! Sequi, labore voluptates? Omnis beatae enim excepturi nulla magni sunt velit! </p>
+
+                    <div id="RightSidee">
+                        
+                    </div>
+                    <a class="link-info" onclick="RightSideExtra()">add new sentence</a>
+                    </div>
+                </aside>
+            </div>
+
+
+        </div>
+      
+     
+   
+    </div>
+        
+        <footer class="footer">
+          <div id="footer"><p>The footer </p></div>  
+        </footer>
+</body>
+</html>
+
+
+
+
+
+

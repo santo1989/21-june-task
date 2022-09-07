@@ -1,8 +1,10 @@
 
  function myFunction2() {
 axios.get('https://countriesnow.space/api/v0.1/countries/info?returns=currency,flag,unicodeFlag,dialCode,language,capital,region,name')
-.then((response) => {
-  response.data = country.json();
+.then((response) => response.json())
+.then((data) => {
+    console.log(data);
+  let country = data.data;
   for(let key in country) {
     console.log(key, country[key]);
     document.getElementById('tBody').innerHTML += `<tr>

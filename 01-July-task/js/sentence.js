@@ -8,6 +8,7 @@
             preposition = ["down", "into", "up", "on", "upon", "below", "above", "through", "across", "towards"];
  
               let output = "";
+              
               output += '<p>'+ nouns[Math.floor(Math.random() * nouns.length)] + " " + verbs[Math.floor(Math.random() * verbs.length)] + " " + adjectives[Math.floor(Math.random() * adjectives.length)] + " " + adverbs[Math.floor(Math.random() * adverbs.length)] + " " + preposition[Math.floor(Math.random() * preposition.length)] + " " + nouns[Math.floor(Math.random() * nouns.length)] + "." + '</p>';
               // console.log(output);
               return output;

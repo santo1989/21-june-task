@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem S</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    
+    <script>
+      //Question: write a program to check whether a String is palindrom or not?
+      // Anser:
+
+      function checkPalindrome(string) {
+        const len = string.length
+        for (let i = 0; i < len / 2; i++) {
+          if (string[i] !== string[len - 1 - i]) {
+            return false
+          }
+        }
+        return true
+      }
+      let s = 'gagag'
+      console.log('anser of example-1 is:', checkPalindrome(s))
+      // console.log(checkPalindrome(s));
+
+      // Example -2
+      // Question: Write a program to find factorial of a number n
+
+      function factorial(n) {
+        if (n == 0 || n == 1) {
+          return 1
+        } else if (n > 1) {
+          return n * factorial(n - 1)
+        }
+      }
+      console.log('anser of example-2 is:', factorial(2))
+      // console.log(factorial(2));
+
+      // Example -3
+      // Question:what is the sum of first 10 even number from 24 to its upper?
+      // answer:
+      let count = 0
+      let sum = 0
+      for (let i = 24; count < 10; i++) {
+        if (i % 2 == 0) {
+          sum += i
+          count++
+        }
+      }
+      console.log('anser of example-3 is:', sum)
+      // console.log(sum);
+
+      // Example -4
+      // Question: let k=5,n-10; what is the sum of 100 times (n xor result)
+      let n = 10
+      let k = 5
+      let result = n ^ k
+      for (let i = 0; i < 100; i++) {
+        result = result ^ n
+      }
+      console.log('anser of example-4 is:', result)
+      // console.log(result);
+
+      // Example -5
+      // Question: write a program to calculate total area of triangle where base=14 and height=30.4
+      function area(base, height) {
+        return (base * height) / 2
+      }
+      console.log('anser of example-5 is:', area(14, 30.4))
+      // console.log(area(14,30.4));
+    </script>
+  </body>
+</html>

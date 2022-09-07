@@ -12,7 +12,8 @@
 
 </div>
 
-<button id="btn" onclick="country()">Click Me</button>
+<button id="btn" >Add Data</button>
+
 
 
 
@@ -267,9 +268,14 @@
   {name: 'Zimbabwe', code: 'ZW'} 
 ]
 
-// let  lists = 
 
-function country(){
+let  btnData = document.getElementById('btnData');
+
+
+
+
+
+btnData.addEventListener('click', function(){
 
     document.getElementById("demowork").innerHTML = "";
     lists.forEach(list => {  
@@ -278,7 +284,7 @@ function country(){
         document.getElementById("demowork").appendChild(li);
 //   console.log(list);
 }); 
-}
+} );
 
 
 

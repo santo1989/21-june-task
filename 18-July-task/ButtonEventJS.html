@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Event Assignment-7</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <body onresize = "work()">
+    <div class="container px-2 py-2">
+   <!-- Create all button event -->
+   <style>
+            #button{
+            border: 5px solid #FFAB33;
+            width: auto;
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+            cursor: pointer;
+            margin: auto;
+            background: #FF5733;
+            }
+
+            #button:hover{
+            background: #DFF30B;
+            }
+
+            #message{
+            font-size: 26px;
+            margin-bottom: 30px;
+            text-align: center;
+            }
+
+            .hide{
+            visibility: hidden;
+            }
+
+            .reveal{
+            visibility: visible;
+            }
+   </style>
+   <div class="wrapper">
+    <div id="message" class="hide">
+      You won't see this message until after you clicked the button. Click again to hide me!
+    </div>
+    <div class="btn btn-primary" id="button">
+      button for show and hide message
+    </div>
+  </div>
+  </div>
+  <div class="container px-2 py-2" >
+
+     
+      <button class="btn btn-primary" id="btn-2" onclick = "funalart()">Button for alart</button>
+
+  </div>
+  <div class="container px-2 py-2" >
+    <div id="DivofBtn3">
+
+       <h3> This is an example of using onclick event. </h3>  
+    <p> Click the following text to see the effect. </p> 
+    </div>
+    
+      <button class="btn btn-primary" id="btn-3">Button for onclick text effect</button>
+  </div>
+  <div class="container px-2 py-2" >
+    <div id="DivofBtn4">
+      <h1 id = "heading"> Hello world :):) </h1>  
+      <h2> Double Click the text "Hello world" to see the effect. </h2>  
+      <p> This is an example of creating the double click event using the <b> addEventListener() method </b>. </p>
+    </div>  
+  
+    <button class="btn btn-primary" id="btn-4">Double Click the text "Hello world" to see the effect.</button>
+
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn5">
+    <div id = "DivofBtn5head">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, voluptas!
+      <br>
+      <br>
+      </div>
+      <button class="btn btn-primary" id="btn-5">click text for heading change</button>
+      
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn6">
+    
+    <h3> This is an example of using JavaScript's onresize event. </h3>  
+    <p> Try to resize the browser's window to see the effect. </p>  
+      
+    <p id = "para"> </p>  
+    <p> You have resized the window <span id = "s1"> 0 </span> times.</p>  
+ 
+      <button class="btn btn-primary" id="btn-6">Button for onresize event</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn7">
+      <button class="btn btn-primary" id="btn-7">Button 7</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn8">
+      <button class="btn btn-primary" id="btn-8">Button 8</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn9">
+      <button class="btn btn-primary" id="btn-9">Button 9</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn10">
+      <button class="btn btn-primary" id="btn-10">Button 10</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn11">
+      <button class="btn btn-primary" id="btn-11">Button 11</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn12">
+      <button class="btn btn-primary" id="btn-12">Button 12</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn13"> 
+      <button class="btn btn-primary" id="btn-13">Button 13</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn14">
+      <button class="btn btn-primary" id="btn-14">Button 14</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn15">
+      <button class="btn btn-primary" id="btn-15">Button 15</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn16">
+      <button class="btn btn-primary" id="btn-16">Button 16</button>
+  </div>
+  <div class="container px-2 py-2" id="DivofBtn17">
+      <!-- <button class="btn btn-primary" id="btn-17">Button 17</button>
+      <button class="btn btn-primary" id="btn-18">Button 18</button>
+      <button class="btn btn-primary" id="btn-19">Button 19</button>
+      <button class="btn btn-primary" id="btn-20">Button 20</button>
+      <button class="btn btn-primary" id="btn-21">Button 21</button>
+      <button class="btn btn-primary" id="btn-22">Button 22</button>
+      <button class="btn btn-primary" id="btn-23">Button 23</button>
+      <button class="btn btn-primary" id="btn-24">Button 24</button>
+
+      <button class="btn btn-primary" id="btn-25">Button 25</button>
+      <button class="btn btn-primary" id="btn-26">Button 26</button>
+      <button class="btn btn-primary" id="btn-27">Button 27</button>
+      <button class="btn btn-primary" id="btn-28">Button 28</button>
+      <button class="btn btn-primary" id="btn-29">Button 29</button>
+      <button class="btn btn-primary" id="btn-30">Button 30</button> -->
+
+    </div>
+    <script>
+   
+  //  button1 event
+        let btn1 = document.querySelector('#button');
+        let msg = document.querySelector('#message');
+
+        btn1.addEventListener('click', ()=>{
+        msg.classList.toggle('reveal');
+        })
+
+  // button2 event
+
+  function funalart() {  
+alert("Welcome to the javaScript world");
+  
+}  
+
+  // button3 event
+        let btn3 = document.querySelector('#btn-3');
+        btn3.addEventListener('click', ()=>{
+        document.getElementById("DivofBtn3").onclick = function() {  
+        divalart()  
+        };  
+        function divalart() {  
+        document.getElementById("DivofBtn3").innerHTML = "Welcome to the javaScript world";  
+        }  document.getElementById("DivofBtn3").style.border = "4px solid red";  
+        })
+   
+  // button4 event
+
+        let btn4 = document.querySelector('#btn-4');
+        btn4.addEventListener('click', ()=>{
+          document.getElementById("DivofBtn4").onclick = function() {  
+bodycolor()  
+};  
+function bodycolor() {  
+document.getElementById("DivofBtn4").innerHTML = "Full Body Color changed";  
+document.getElementsByTagName("body")[0].style.color = "blue";  
+document.getElementsByTagName("body")[0].style.backgroundColor = "lightgreen";  
+document.getElementsByTagName("body")[0].style.fontSize = "25px";  
+document.getElementById("DivofBtn4").style.border = "4px solid red";   
+}  
+        })
+
+  // button5 event
+
+        let btn5 = document.querySelector('#btn-5');
+        btn5.addEventListener('click', ()=>{
+            document.getElementById("DivofBtn5head").addEventListener("dblclick", changeheading); 
+function changeheading() {  
+document.getElementById("DivofBtn5head").innerHTML = " heading Changed";  
+}  
+        })
+   
+  // button6 event
+
+        let btn6 = document.querySelector('#btn-6');
+        btn6.addEventListener('click', ()=>{  
+document.getElementsByTagName("BODY")[0].onresize = function() {fun()};  
+var i = 0;  
+  
+function fun() {  
+var res = "Width = " + window.outerWidth + "<br>" + "Height = " + window.outerHeight;  
+document.getElementById("para").innerHTML = res;  
+  
+var res1 = i += 1;  
+document.getElementById("s1").innerHTML = res1;  
+}  
+        })
+
+
+
+    </script>
+  </body>
+</html>

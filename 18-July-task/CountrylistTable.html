@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country List Table from API</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    .container {
+      margin-top: 20px;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+  <body>
+    <div class="container px-2 py-2" id="demo">
+      <input
+        type="button"
+        class="btn btn-outline-success"
+        value="Generate a table"
+        onclick="generate_table()"
+      />
+    </div>
+    <script>
+      function generate_table() {
+        fetch(
+          'https://countriesnow.space/api/v0.1/countries/info?returns=currency,flag,unicodeFlag,dialCode,language,capital,region,name'
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            data.data.forEach((element) => {
+              console.log(element)
+            })
+            // });
+            // console.log(data);
+
+            var table = document.createElement('table')
+            table.setAttribute('class', 'table table-bordered ')
+            var tr = table.insertRow(-1)
+            var th = document.createElement('th')
+            th.innerHTML = 'Flag'
+            tr.appendChild(th)
+            th = document.createElement('th')
+            th.innerHTML = 'Name'
+            tr.appendChild(th)
+            // th = document.createElement("th");
+            // th.innerHTML = "Currency";
+            // tr.appendChild(th);
+            // th = document.createElement("th");
+            // th.innerHTML = "Region";
+            // tr.appendChild(th);
+            th = document.createElement('th')
+            th.innerHTML = 'Currency'
+            tr.appendChild(th)
+            th = document.createElement('th')
+            th.innerHTML = 'Dial Code'
+            tr.appendChild(th)
+            // th = document.createElement("th");
+            // th.innerHTML = "Language";
+            // tr.appendChild(th);
+            th = document.createElement('th')
+            th.innerHTML = 'Unicode Flag'
+            tr.appendChild(th)
+            thead = document.createElement('thead')
+            thead.appendChild(tr)
+            table.appendChild(thead)
+            let countryList = data.data
+
+            for (var i = 0; i < countryList.length; i++) {
+              tr = table.insertRow(-1)
+              var flag = tr.insertCell(-1)
+              flag.innerHTML = `<img  src="${countryList[i].flag}" alt="${countryList[i].name}">`
+              var name = tr.insertCell(-1)
+              name.innerHTML = countryList[i].name
+              // console.log(countryList[i].name);
+              var currency = tr.insertCell(-1)
+              currency.innerHTML = countryList[i].currency
+              var dialCode = tr.insertCell(-1)
+              dialCode.innerHTML = countryList[i].dialCode
+
+              var unicodeFlag = tr.insertCell(-1)
+              unicodeFlag.innerHTML = countryList[i].unicodeFlag
+            }
+            var div = document.getElementById('demo')
+            div.innerHTML = ''
+            div.appendChild(table)
+          })
+      }
+
+      //     let table = document.createElement("table");
+      //     table.className = "table table-striped";
+      //     let thead = document.createElement("thead");
+      //     let tr = document.createElement("tr");
+      //     let th = document.createElement("th");
+      //     th.innerHTML = "Country";
+      //     tr.appendChild(th);
+      //     th = document.createElement("th");
+      //     th.innerHTML = "Capital";
+      //     tr.appendChild(th);
+      //     th = document.createElement("th");
+      //     th.innerHTML = "Population";
+      //     tr.appendChild(th);
+      //     th = document.createElement("th");
+      //     th.innerHTML = "Region";
+      //     tr.appendChild(th);
+      //     th = document.createElement("th");
+      //     th.innerHTML = "Subregion";
+      //     tr.appendChild(th);
+      //     th = document.createElement("th");
+      //     th.innerHTML = "Area";
+      //     tr.appendChild(th);
+      //     th = document.createElement("th");
+      //     th.innerHTML = "Borders";
+      //     tr.appendChild(th);
+      //     thead.appendChild(tr);
+      //     table.appendChild(thead);
+      //     let tbody = document.createElement("tbody");
+      //     data.forEach(element => {
+      //         tr = document.createElement("tr");
+      //         th = document.createElement("th");
+      //         th.innerHTML = element.name;
+      //         tr.appendChild(th);
+      //         th = document.createElement("th");
+      //         th.innerHTML = element.capital;
+      //         tr.appendChild(th);
+      //         th = document.createElement("th");
+      //         th.innerHTML = element.population;
+      //         tr.appendChild(th);
+      //         th = document.createElement("th");
+      //         th.innerHTML = element.region;
+      //         tr.appendChild(th);
+      //         th = document.createElement("th");
+      //         th.innerHTML = element.subregion;
+      //         tr.appendChild(th);
+      //         th = document.createElement("th");
+      //         th.innerHTML = element.area;
+      //         tr.appendChild(th);
+      //         th = document.createElement("th");
+      //         th.innerHTML = element.borders;
+      //         tr.appendChild(th);
+      //         tbody.appendChild(tr);
+      //     });
+      //     table.appendChild(tbody);
+      //     document.getElementById("demo").appendChild(table);
+      // });}
+      // function generate_table() {
+
+      //  // creates a <table> element and a <tbody> element
+      //   const tbl = document.createElement("table");
+      //   const tblhead = document.createElement("thead");
+      //   const tblBody = document.createElement("tbody");
+
+      //     // creating table header
+      //     const hrow = document.createElement("tr");
+      //     const hcol1 = document.createElement("th");
+      //     const hcol2 = document.createElement("th");
+      //     const hcol3 = document.createElement("th");
+      //     const hcol4 = document.createElement("th");
+
+      //     hcol1.innerHTML = "Country";
+      //     hcol2.innerHTML = "Capital";
+      //     hcol3.innerHTML = "Population";
+      //     hcol4.innerHTML = "Area";
+      //     hrow.appendChild(hcol1);
+      //     hrow.appendChild(hcol2);
+      //     hrow.appendChild(hcol3);
+      //     hrow.appendChild(hcol4);
+      //     tblhead.appendChild(hrow);
+      //     tbl.appendChild(tblhead);
+
+      //   // creating all cells
+      //   for (let i = 0; i < 2; i++) {
+      //     // creates a table row
+      //     const row = document.createElement("tr");
+
+      //     for (let j = 0; j < 2; j++) {
+      //       // Create a <td> element and a text node, make the text
+      //       // node the contents of the <td>, and put the <td> at
+      //       // the end of the table row
+      //       const cell = document.createElement("td");
+      //       const cellText = document.createTextNode("cell in row "+i+", column "+j);
+      //       cell.appendChild(cellText);
+      //       row.appendChild(cell);
+      //     }
+
+      //     // add the row to the end of the table body
+      //     tblBody.appendChild(row);
+      //   }
+
+      //   // put the <tbody> in the <table>
+      //   tbl.appendChild(tblBody);
+      //   // appends <table> into <body>
+      //   document.body.appendChild(tbl);
+      //   // sets the border attribute of tbl to '1'
+      //   tbl.setAttribute("border", "1");
+      // }
+    </script>
+  </body>
+</html>

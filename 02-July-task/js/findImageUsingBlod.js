@@ -22,7 +22,7 @@ function myFunction6() {
   
 
   fetch('https://picsum.photos/200/300')
-.then(response => response.blob())
+.then(response => response.blob())// if Data type response is json then use .json() method or if data type is image then use .blob() method
 .then(blob => {
   
   // console.log(blob)

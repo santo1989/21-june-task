@@ -48,5 +48,5 @@ const sendData = () => {
     });
 };
 
-getBtn.addEventListener('click', getData);
-postBtn.addEventListener('click', sendData);
+// getBtn.addEventListener('click', getData);
+// postBtn.addEventListener('click', sendData);

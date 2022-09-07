@@ -23,10 +23,30 @@
    <div class="container-fluid">
      
 
-            <script src="js/ex4.js"></script>
+            <script src="js/XMLHttpRequest.js"></script>
         <a class="btn btn-primary" onclick="myFunction4()">XMLHttpRequest data</a>
    
-
+<!-- <script>
+  function myFunction4() {
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://countriesnow.space/api/v0.1/countries/iso');
+    xhr.send(null);
+    
+    xhr.onreadystatechange = function () {
+      var DONE = 4; // readyState 4 means the request is done.
+      var OK = 200; // status 200 is a successful return.
+      if (xhr.readyState === DONE) {
+        if (xhr.status === OK) {
+          console.log(xhr.responseText); // 'This is the returned text.'
+        } else {
+          console.log('Error: ' + xhr.status); // An error occurred during the request.
+        }
+      }
+    }; 
+    
+    }
+</script> -->
     </div>
 
 </body>
