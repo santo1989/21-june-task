@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <dl>
+    <dd>
+    <dt id="id_1">title</dt>
+    <ul>
+      <li id="author_1">description</li>
+      <li id="width_1">price</li>
+      <li id="height_1">discountPercentage</li>
+      <li id="url_1">rating</li>
+      <p id="image_1"></p>
+    </ul>
+    </dd>
+    <dd>
+    <dt id="id_2">title</dt>
+    <ul>
+      <li id="author_2">description</li>
+      <li id="width_2">price</li>
+      <li id="height_2">discountPercentage</li>
+      <li id="url_2">rating</li>
+      <p id="image_2"></p>
+    </ul>
+    </dd>
+
+    <dd>
+    <dt id="id_3">title</dt>
+    <ul>
+      <li id="author_3">description</li>
+      <li id="width_3">price</li>
+      <li id="height_3">discountPercentage</li>
+      <li id="url_3">rating</li>
+      <p id="image_3"></p>
+    </ul>
+    </dd>
+  </dl>
+
+  <script>
+    var image_list = [
+      {
+        "id": "0",
+        "author": "Alejandro Escamilla",
+        "width": 5616,
+        "height": 3744,
+        "url": "https://unsplash.com/photos/yC-Yzbqy7PY",
+        "download_url": "https://picsum.photos/id/0/5616/3744"
+      },
+      {
+        "id": "1",
+        "author": "Alejandro Escamilla",
+        "width": 5617,
+        "height": 3745,
+        "url": "https://unsplash.com/photos/LNRyGwIJr5c",
+        "download_url": "https://picsum.photos/id/1/5616/3744"
+      },
+      {
+        "id": "10",
+        "author": "Paul Jarvis",
+        "width": 2500,
+        "height": 1667,
+        "url": "https://unsplash.com/photos/6J--NXulQCs",
+        "download_url": "https://picsum.photos/id/10/2500/1667"
+      },
+      {
+        "id": "100",
+        "author": "Tina Rataj",
+        "width": 2500,
+        "height": 1656,
+        "url": "https://unsplash.com/photos/pwaaqfoMibI",
+        "download_url": "https://picsum.photos/id/100/2500/1656"
+      },
+      {
+        "id": "1000",
+        "author": "Lukas Budimaier",
+        "width": 5626,
+        "height": 3635,
+        "url": "https://unsplash.com/photos/6cY-FvMlmkQ",
+        "download_url": "https://picsum.photos/id/1000/5626/3635"
+      },
+      {
+        "id": "1001",
+        "author": "Danielle MacInnes",
+        "width": 5616,
+        "height": 3744,
+        "url": "https://unsplash.com/photos/1DkWWN1dr-s",
+        "download_url": "https://picsum.photos/id/1001/5616/3744"
+      },
+      {
+        "id": "1002",
+        "author": "NASA",
+        "width": 4312,
+        "height": 2868,
+        "url": "https://unsplash.com/photos/6-jTZysYY_U",
+        "download_url": "https://picsum.photos/id/1002/4312/2868"
+      },
+      {
+        "id": "1003",
+        "author": "E+N Photographies",
+        "width": 1181,
+        "height": 1772,
+        "url": "https://unsplash.com/photos/GYumuBnTqKc",
+        "download_url": "https://picsum.photos/id/1003/1181/1772"
+      },
+      {
+        "id": "1004",
+        "author": "Greg Rakozy",
+        "width": 5616,
+        "height": 3744,
+        "url": "https://unsplash.com/photos/SSxIGsySh8o",
+        "download_url": "https://picsum.photos/id/1004/5616/3744"
+      },
+      {
+        "id": "1005",
+        "author": "Matthew Wiebe",
+        "width": 5760,
+        "height": 3840,
+        "url": "https://unsplash.com/photos/tBtuxtLvAZs",
+        "download_url": "https://picsum.photos/id/1005/5760/3840"
+      },
+      {
+        "id": "1006",
+        "author": "Vladimir Kudinov",
+        "width": 3000,
+        "height": 2000,
+        "url": "https://unsplash.com/photos/-wWRHIUklxM",
+        "download_url": "https://picsum.photos/id/1006/3000/2000"
+      },
+      {
+        "id": "1008",
+        "author": "Benjamin Combs",
+        "width": 5616,
+        "height": 3744,
+        "url": "https://unsplash.com/photos/5L4XAgMSno0",
+        "download_url": "https://picsum.photos/id/1008/5616/3744"
+      },
+      {
+        "id": "1009",
+        "author": "Christopher Campbell",
+        "width": 5000,
+        "height": 7502,
+        "url": "https://unsplash.com/photos/CMWRIzyMKZk",
+        "download_url": "https://picsum.photos/id/1009/5000/7502"
+      },
+      {
+        "id": "101",
+        "author": "Christian Bardenhorst",
+        "width": 2621,
+        "height": 1747,
+        "url": "https://unsplash.com/photos/8lMhzUjD1Wk",
+        "download_url": "https://picsum.photos/id/101/2621/1747"
+      },
+      {
+        "id": "1010",
+        "author": "Samantha Sophia",
+        "width": 5184,
+        "height": 3456,
+        "url": "https://unsplash.com/photos/NaWKMlp3tVs",
+        "download_url": "https://picsum.photos/id/1010/5184/3456"
+      },
+      {
+        "id": "1011",
+        "author": "Roberto Nickson",
+        "width": 5472,
+        "height": 3648,
+        "url": "https://unsplash.com/photos/7BjmDICVloE",
+        "download_url": "https://picsum.photos/id/1011/5472/3648"
+      },
+      {
+        "id": "1012",
+        "author": "Scott Webb",
+        "width": 3973,
+        "height": 2639,
+        "url": "https://unsplash.com/photos/uAgLGG1WBd4",
+        "download_url": "https://picsum.photos/id/1012/3973/2639"
+      },
+      {
+        "id": "1013",
+        "author": "Cayton Heath",
+        "width": 4256,
+        "height": 2832,
+        "url": "https://unsplash.com/photos/D8LcRLwZyPs",
+        "download_url": "https://picsum.photos/id/1013/4256/2832"
+      },
+      {
+        "id": "1014",
+        "author": "Oscar Keys",
+        "width": 6016,
+        "height": 4000,
+        "url": "https://unsplash.com/photos/AmPRUnRb6N0",
+        "download_url": "https://picsum.photos/id/1014/6016/4000"
+      },
+      {
+        "id": "1015",
+        "author": "Alexey Topolyanskiy",
+        "width": 6000,
+        "height": 4000,
+        "url": "https://unsplash.com/photos/-oWyJoSqBRM",
+        "download_url": "https://picsum.photos/id/1015/6000/4000"
+      },
+      {
+        "id": "1016",
+        "author": "Philippe Wuyts",
+        "width": 3844,
+        "height": 2563,
+        "url": "https://unsplash.com/photos/_h7aBovKia4",
+        "download_url": "https://picsum.photos/id/1016/3844/2563"
+      },
+      {
+        "id": "1018",
+        "author": "Andrew Ridley",
+        "width": 3914,
+        "height": 2935,
+        "url": "https://unsplash.com/photos/Kt5hRENuotI",
+        "download_url": "https://picsum.photos/id/1018/3914/2935"
+      },
+      {
+        "id": "1019",
+        "author": "Patrick Fore",
+        "width": 5472,
+        "height": 3648,
+        "url": "https://unsplash.com/photos/V6s1cmE39XM",
+        "download_url": "https://picsum.photos/id/1019/5472/3648"
+      },
+      {
+        "id": "102",
+        "author": "Ben Moore",
+        "width": 4320,
+        "height": 3240,
+        "url": "https://unsplash.com/photos/pJILiyPdrXI",
+        "download_url": "https://picsum.photos/id/102/4320/3240"
+      },
+      {
+        "id": "1020",
+        "author": "Adam Willoughby-Knox",
+        "width": 4288,
+        "height": 2848,
+        "url": "https://unsplash.com/photos/_snqARKTgoc",
+        "download_url": "https://picsum.photos/id/1020/4288/2848"
+      },
+      {
+        "id": "1021",
+        "author": "Frances Gunn",
+        "width": 2048,
+        "height": 1206,
+        "url": "https://unsplash.com/photos/8BmNurlVR6M",
+        "download_url": "https://picsum.photos/id/1021/2048/1206"
+      },
+      {
+        "id": "1022",
+        "author": "Vashishtha Jogi",
+        "width": 6000,
+        "height": 3376,
+        "url": "https://unsplash.com/photos/bClr95glx6k",
+        "download_url": "https://picsum.photos/id/1022/6000/3376"
+      },
+      {
+        "id": "1023",
+        "author": "William Hook",
+        "width": 3955,
+        "height": 2094,
+        "url": "https://unsplash.com/photos/93Ep1dhTd2s",
+        "download_url": "https://picsum.photos/id/1023/3955/2094"
+      },
+      {
+        "id": "1024",
+        "author": "Niko Virtanen",
+        "width": 1920,
+        "height": 1280,
+        "url": "https://nikovirtanen.com",
+        "download_url": "https://picsum.photos/id/1024/1920/1280"
+      },
+      {
+        "id": "1025",
+        "author": "Matthew Wiebe",
+        "width": 4951,
+        "height": 3301,
+        "url": "https://unsplash.com/photos/U5rMrSI7Pn4",
+        "download_url": "https://picsum.photos/id/1025/4951/3301"
+      }
+    ]
+    // console.log(image_list);
+    // console.log(image_list[29]);
+    // console.log(image_list[29].author);
+    // console.log(image_list[29].id);
+    // console.log(image_list[29].url);
+    // console.log(image_list[29].download_url);
+
+    // let author = image_list[29].author;
+    // let id = image_list[29].id;
+
+    // let img = document.createElement("img")
+    // img.setAttribute("src", image_list[29].download_url)
+    // img.style.width = "200px";
+
+    // let img2 = document.createElement("img")
+    // img2.setAttribute("src", image_list[28].download_url)
+    // img2.style.width = "200px";
+
+    // document.getElementById("title_1").innerHTML = "Type " + " : " + "Image";
+    // document.getElementById("description_1").innerHTML = "author " + " : " + author;
+    // document.getElementById("description_2").innerHTML = "id " + " : " + id;
+    // document.getElementById("description_3").append(img);
+    // document.getElementById("description_4").append(img2);
+
+    // for (const key in image_list) {
+    //   // console.log(image_list[key])
+    //   document.getElementById(`id_${key}`).innerHTML = "id " + " : " + image_list[key].id;
+    //   document.getElementById(`author_${key}`).innerHTML = "author " + " : " + image_list[key].author;
+    //   document.getElementById(`width_${key}`).innerHTML = "width " + " : " + image_list[key].width;
+    //   document.getElementById(`height_${key}`).innerHTML = "height " + " : " + image_list[key].height;
+    //   document.getElementById(`url_${key}`).innerHTML = "url " + " : " + image_list[key].url;
+
+    //   let img = document.createElement("img")
+    //   img.setAttribute("src", image_list[key].download_url);
+    //   img.style.width = "200px";
+    //   document.getElementById(`image_${key}`).append(img);
+    // }
+
+    let i=1;
+    for (let key of image_list) {
+        console.log(key);
+        document.getElementById(`id_${i}`).innerHTML = "id " + " : " + key.id;
+      document.getElementById(`author_${i}`).innerHTML = "author " + " : " + key.author;
+      document.getElementById(`width_${i}`).innerHTML = "width " + " : " + key.width;
+      document.getElementById(`height_${i}`).innerHTML = "height " + " : " + key.height;
+      document.getElementById(`url_${i}`).innerHTML = "url " + " : " + key.url;
+
+      let img = document.createElement("img")
+      img.setAttribute("src", key.download_url);
+      img.style.width = "200px";
+      document.getElementById(`image_${i}`).append(img);
+i++;
+    }
+
+  </script>
+</body>
+
+</html>

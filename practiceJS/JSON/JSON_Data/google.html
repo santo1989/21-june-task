@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <dl>
+    <dt id="title_1">title</dt>
+    <dd id="description_1">description</dd>
+    <dd id="title_2">title</dd>
+    <dd id="description_2">description</dd>
+  </dl>
+<script>
+    let googleJsonData = {
+        "minStartTimeNs": 1429113600000000000,
+        "maxEndTimeNs": 1439113600000000012,
+        "dataSourceId": "raw:com.google.heart_rate.bpm:947638375611",
+        "point": [
+            {
+                "startTimeNanos": 1429113600000000012,
+                "endTimeNanos": 1429113600000000015,
+                "dataTypeName": "com.google.heart_rate.bpm",
+                "value": [
+                    {
+                        "fpVal": 75.5
+                    }
+                ]
+            },
+            {
+                "startTimeNanos": 1429113700000000012,
+                "endTimeNanos": 1429113700000000014,
+                "dataTypeName": "com.google.heart_rate.bpm",
+                "value": [
+                    {
+                        "fpVal": 73.5
+                    }
+                ]
+            }
+        ]
+    }
+    console.log(googleJsonData);
+    console.log(googleJsonData.point);
+    console.log(googleJsonData.point[1]);
+    console.log(googleJsonData.point[1].value);
+    console.log(googleJsonData.point[1].startTimeNanos);
+    console.log(googleJsonData.point[1].endTimeNanos);
+    console.log(googleJsonData.point[1].dataTypeName);
+    console.log(googleJsonData.point[1].value[0]);
+    console.log(googleJsonData.point[1].value[0].fpVal);
+
+    let startTimeNanos = googleJsonData.point[1].startTimeNanos;
+    let endTimeNanos = googleJsonData.point[1].endTimeNanos;
+    let dataTypeName = googleJsonData.point[1].dataTypeName;
+    let fpVal = googleJsonData.point[1].value[0].fpVal;
+
+
+    document.getElementById("title_1").innerHTML = "fpVal " + " : " + fpVal;
+    document.getElementById("description_1").innerHTML = "dataTypeName " + " : " + dataTypeName;
+    document.getElementById("title_2").innerHTML = "startTimeNanos " + " : " + startTimeNanos;
+    document.getElementById("description_2").innerHTML = "endTimeNanos " + ":" + endTimeNanos;
+  </script>
+</body>
+
+</html>

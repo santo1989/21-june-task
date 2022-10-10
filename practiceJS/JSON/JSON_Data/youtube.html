@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <dl>
+        <dt id="title_1">title</dt>
+        <dd id="description_1">description</dd>
+        <dd id="description_2">description</dd>
+    </dl>
+
+    <script>
+        let youtubeJsonData = {
+            "apiVersion": "2.1",
+            "data": {
+                "id": "VA770wpLX-Q",
+                "uploaded": "2011-02-24T22:31:02.000Z",
+                "updated": "2012-04-08T21:37:06.000Z",
+                "uploader": "drdrevevo",
+                "category": "Music",
+                "title": "Dr. Dre - I Need A Doctor (Explicit) ft. Eminem, Skylar Grey",
+                "description": "Music video by Dr. Dre performing I Need A Doctor featuring Eminem and Skylar Grey (Explicit). © 2011 Aftermath Records",
+                "tags": ["Dr", "Dre", "Eminem", "New", "Song", "Skylar", "Grey", "GRAMMYs", "Dr.", "Need", "Doctor", "video", "Eazy", "N.W.A.", "NWA", "easy", "drdre", "and", "em"],
+                "thumbnail": {
+                    "sqDefault": "http://i.ytimg.com/vi/VA770wpLX-Q/default.jpg",
+                    "hqDefault": "http://i.ytimg.com/vi/VA770wpLX-Q/hqdefault.jpg"
+                },
+                "player": {
+                    "default": "http://www.youtube.com/watch?v=VA770wpLX-Q&feature=youtube_gdata_player"
+                },
+                "content": {
+                    "5": "http://www.youtube.com/v/VA770wpLX-Q?version=3&f=videos&app=youtube_gdata"
+                },
+                "duration": 457,
+                "aspectRatio": "widescreen",
+                "rating": 4.902695,
+                "likeCount": "430519",
+                "ratingCount": 441253,
+                "viewCount": 88270796,
+                "favoriteCount": 306556,
+                "commentCount": 270597,
+                "status": {
+                    "value": "restricted",
+                    "reason": "requesterRegion"
+                },
+                "restrictions": [{
+                    "type": "country",
+                    "relationship": "deny",
+                    "countries": "DE"
+                }],
+                "accessControl": {
+                    "comment": "allowed",
+                    "commentVote": "allowed",
+                    "videoRespond": "allowed",
+                    "rate": "allowed",
+                    "embed": "allowed",
+                    "list": "allowed",
+                    "autoPlay": "denied",
+                    "syndicate": "allowed"
+                }
+            }
+        }
+
+        console.log(youtubeJsonData);// Here the object will show
+        console.log(youtubeJsonData.data);// Here the inner object will show
+        console.log(youtubeJsonData.data.restrictions);// Here the array will show
+        console.log(youtubeJsonData.data.restrictions[0]);// Here the array[0] index will show
+        console.log(youtubeJsonData.data.restrictions[0].type); // Maximum depth data
+        console.log(youtubeJsonData.data.restrictions[0].relationship); // Maximum depth data
+        console.log(youtubeJsonData.data.restrictions[0].countries); // Maximum depth data
+
+        let com = youtubeJsonData.data.restrictions[0];
+        let type = com.type;
+        let relationship = com.relationship;
+        let countries = com.countries;
+
+        document.getElementById("title_1").innerHTML = "type " + ":" + type;
+        document.getElementById("description_1").innerHTML = "relationship " + ":" + relationship;
+        document.getElementById("description_2").innerHTML = "countries " + ":" + countries;
+
+    </script>
+</body>
+
+</html>

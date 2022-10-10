@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+<dl>
+   <dt id="title_1">title</dt>
+   <dd id="description_1">description</dd>
+   <dd id="description_2">description</dd>
+   <dd id="description_3">description</dd>
+</dl>
+<script>
+   let facebookJsonData = {
+      "data": [
+         {
+            "id": "X999_Y999",
+            "from": {
+               "name": "Tom Brady", "id": "X12"
+            },
+            "message": "Looking forward to 2010!",
+            "actions": [
+               {
+                  "name": "Comment",
+                  "link": "http://www.facebook.com/X999/posts/Y999"
+               },
+               {
+                  "name": "Like",
+                  "link": "http://www.facebook.com/X999/posts/Y999"
+               }
+            ],
+            "type": "status",
+            "created_time": "2010-08-02T21:27:44+0000",
+            "updated_time": "2010-08-02T21:27:44+0000"
+         },
+         {
+            "id": "X998_Y998",
+            "from": {
+               "name": "Peyton Manning", "id": "X18"
+            },
+            "message": "Where's my contract?",
+            "actions": [
+               {
+                  "name": "Comment",
+                  "link": "http://www.facebook.com/X998/posts/Y998"
+               },
+               {
+                  "name": "Like",
+                  "link": "http://www.facebook.com/X998/posts/Y998"
+               }
+            ],
+            "type": "status",
+            "created_time": "2010-08-02T21:27:44+0000",
+            "updated_time": "2010-08-02T21:27:44+0000"
+         }
+      ]
+   }
+   console.log(facebookJsonData); // Here the object will show
+   console.log(facebookJsonData.data); // Here the array will show
+   console.log(facebookJsonData.data[0]); // Here the array[0] index will show
+   console.log(facebookJsonData.data[0].actions); // Here the inner array index will show
+   console.log(facebookJsonData.data[0].actions[1]); // Here the inner array index [1] will show. index[1] is a inner object
+   console.log(facebookJsonData.data[0].actions[1].name); // Maximum depth data
+   console.log(facebookJsonData.data[0].actions[1].link);  // Maximum depth data
+
+   let name = facebookJsonData.data[0].actions[1].name;
+   let link = facebookJsonData.data[0].actions[1].link;
+   let id = facebookJsonData.data[0].from.id;
+   let message = facebookJsonData.data[0].message;
+
+   document.getElementById("title_1").innerHTML = "name " + " : " + name;
+   document.getElementById("description_1").innerHTML = "link " + " : " + link;
+   document.getElementById("description_2").innerHTML = "id " + " : " + id;
+   document.getElementById("description_3").innerHTML = "message " + ":" + message;
+</script>
+</body>
+
+</html>

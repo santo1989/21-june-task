@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <dl>
+        <dt id="name_1">name</dt>
+        <dd id="gender_1">gender</dd>
+        <dd id="age_1">age</dd>
+    </dl>
+    <dl>
+        <dt id="name_2">name</dt>
+        <dd id="gender_2">gender</dd>
+        <dd id="age_2">age</dd>
+    </dl>
+
+    <script>
+        const data = [
+            {
+                name: 'Mamun',
+                gender: 'male',
+                age: 27,
+            },
+            {
+                name: 'Fatima',
+                gender: 'female',
+                age: 30,
+            },
+            {
+                name: 'Rashid',
+                gender: 'male',
+                age: 38,
+            },
+            {
+                name: 'Alif',
+                gender: 'female',
+                age: 20,
+            },
+        ];
+
+        let j = 1;
+        // let students = data.filter(student => student.age > 27);
+        // students.forEach(element => {
+        //     document.getElementById(`name_${j}`).innerHTML = "Name " + " : " + element.name;
+        //     document.getElementById(`gender_${j}`).innerHTML = "gender " + " : " + element.gender;
+        //     document.getElementById(`age_${j}`).innerHTML = "age " + " : " + element.age;
+        //     j++;
+        // });
+
+
+
+        // let students = data.filter(student => student.gender === 'female');
+        //   students.map(element => {
+        //             document.getElementById(`name_${j}`).innerHTML = "Name " + " : " + element.name;
+        //             document.getElementById(`gender_${j}`).innerHTML = "gender " + " : " + element.gender;
+        //             document.getElementById(`age_${j}`).innerHTML = "age " + " : " + element.age;
+        //             j++;
+        //         });
+
+        let students = data.filter(student => student.age > 27);
+        let studentAge = students.reduce((acc, val) => {
+            return acc+val.age;
+            // console.log(acc,val)
+        },0)
+        console.log(studentAge)
+
+    </script>
+</body>
+
+</html>

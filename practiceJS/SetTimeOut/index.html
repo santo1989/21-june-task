@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SetTime Game</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <style>
+    /* .container {
+      margin: 50px auto;
+    } */
+  </style>
+</head>
+<body>
+    <!-- <div class="container">
+    <button class="btn btn-primary" id="start"> Start </button>
+<button class="btn btn-danger" id="stop"> Stop </button>
+
+<div id="moving" style=" height:100px;
+width:100px;
+margin-top: 5px;
+border:1px solid red;
+background-color:yellow;
+position:relative;">I am moving.</div>
+    </div> -->
+<script>
+    let container = document.createElement('div');
+    container.classList.add('container');
+    document.body.appendChild(container);
+    let start = document.createElement('button');
+    start.innerHTML = 'Start';
+    start.setAttribute('class', 'btn btn-primary');
+    start.setAttribute('id', 'start');
+    document.querySelector('.container').appendChild(start);
+
+    let stop = document.createElement('button');
+    stop.innerHTML = 'Stop';
+    stop.setAttribute('class', 'btn btn-danger');
+    stop.setAttribute('id', 'stop');
+    document.querySelector('.container').appendChild(stop);
+
+    let moving = document.createElement('div');
+    moving.innerHTML = 'I am moving.';
+    moving.setAttribute('id', 'moving');
+    moving.setAttribute('style', 'height:100px; width:100px; margin-top: 5px; border:1px solid red; background-color:yellow; position:relative;');
+    document.querySelector('.container').appendChild(moving);
+
+    
+    let id;
+    start.addEventListener("click", function(){
+       id = setTimeout(move, 1000);
+    });
+    stop.addEventListener("click", function(){
+        clearTimeout(id);
+    });
+    function move(){
+        let left = moving.offsetLeft;
+      if(left < 900){
+        left += 10;
+      }else{
+        left = 0;
+      }
+        moving.style.left = left + "px";
+        id = setTimeout(move, 1000);
+    }
+
+</script>
+
+</script>
+</body>
+</html>

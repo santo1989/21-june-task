@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Car{
+            constructor(make,model){
+                this.make = make;
+                this.model = model;
+            }
+            drive(){
+                console.log(`I am driving ${this.model} Which was made on ${this.make}`);
+            }
+        }
+        let myCar = new Car(2020, 'BMW');
+        myCar.drive();
+    </script>
+</body>
+</html>

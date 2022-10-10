@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX CURD</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <h1 class="text-center">AJAX CURD</h1>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Add User</h3>
+            </div>
+            <div class="card-body">
+              <form id="userForm">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    class="form-control"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                <h3 class="card-title">All Users</h3>
+                </div>
+                <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="users"></tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <script>
+        // fetch crud data from localStorage
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // add user
+        $('#userForm').submit(function(e) {
+            e.preventDefault();
+
+            const name = $('#name').val();
+            const email = $('#email').val();
+            const phone = $('#phone').val();
+
+            const user = {
+                name,
+                email,
+                phone
+            }
+
+            users.push(user);
+
+            localStorage.setItem('users', JSON.stringify(users));
+
+            $('#userForm')[0].reset();
+        });
+
+        // get user
+        const getUser = () => {
+            users = JSON.parse(localStorage.getItem('users')) || [];
+        }
+
+        // update user
+        const updateUser = () => {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        // delete user
+        const deleteUser = (email) => {
+            users = users.filter(user => user.email !== email);
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        // show user
+
+        const showUser = () => {
+            getUser();
+
+            let output = '';
+
+            users.forEach(user => {
+                output += `
+                    <tr>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${user.phone}</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm edit">Edit</button>
+                            <button class="btn btn-danger btn-sm delete">Delete</button>   
+                        </td>
+                    </tr>
+                `;
+            });
+
+            $('#users').html(output);
+        }
+
+        $(document).ready(function() {
+            showUser();
+        });
+
+        // delete user
+
+        $(document).on('click', '.delete', function() {
+            deleteUser($(this).closest('tr').find('td:eq(1)').text());
+            showUser();
+        });
+
+        // edit user
+
+        $(document).on('click', '.edit', function() {
+            const email = $(this).closest('tr').find('td:eq(1)').text();
+
+            users.forEach(user => {
+                if(user.email === email) {
+                    $('#name').val(user.name);
+                    $('#email').val(user.email);
+                    $('#phone').val(user.phone);
+                }
+            });
+        });
+
+
+
+
+    </script>
+  </body>
+</html>

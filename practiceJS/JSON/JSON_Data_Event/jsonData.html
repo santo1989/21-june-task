@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <dl>
+    <dt id="title_1">title</dt>
+    <dd id="description_1">description</dd>
+    <dd id="title_2">title</dd>
+    <dd id="description_2">description</dd>
+  </dl>
+<script>
+    let jsonData={
+   "records":[  {
+
+         "variables":[
+            {
+               "display_value":[
+                  {
+                     "quantity":"1",
+                     "color":"Black",
+                     "device_type":"Apple iPhone 8",
+                     "storage":"64GB"
+                  },
+                  {
+                     "quantity":"1",
+                     "color":"Black",
+                     "device_type":"Apple iPhone 8",
+                     "storage":"64GB"
+                  }
+               ],
+               "columns_meta":[
+                  {
+                     "name":"device_type",
+                     "label":"Device Type",
+                     "id":"da7d3f3241411300964ff05369414eca",
+                     "type":5,
+                     "order":"0"
+                  },
+                  {
+                     "name":"storage",
+                     "label":"Storage",
+                     "id":"691e337241411300964ff05369414e31",
+                     "type":5,
+                     "order":"1"
+                  },
+                  {
+                     "name":"color",
+                     "label":"Color",
+                     "id":"e89fb77241411300964ff05369414e74",
+                     "type":5,
+                     "order":"2"
+                  },
+                  {
+                     "name":"quantity",
+                     "label":"Quantity",
+                     "id":"2d5f737241411300964ff05369414eaf",
+                     "type":5,
+                     "order":"3"
+                  }
+               ],
+               "max_rows":50,
+               "name":"mobile_devices_set",
+               "id":"e84d3f3241411300964ff05369414e3e",
+               "type":"one_to_many",
+               "value":[
+                  {
+                     "quantity":"1",
+                     "color":"black",
+                     "device_type":"iphone8",
+                     "storage":"64GB"
+                  },
+                  {
+                     "quantity":"1",
+                     "color":"black",
+                     "device_type":"iphone8",
+                     "storage":"64GB"
+                  }
+               ],
+               "row_count":2
+            },
+            {
+               "question_text":"Department",
+               "name":"department",
+               "type":8,
+               "value":"Development",
+               "order":100
+            },
+            {
+               "question_text":"Who is this request for?",
+               "name":"requested_for",
+               "type":8,
+               "value":"System Administrator",
+               "order":100
+            },
+            {
+               "question_text":"When do you need this?",
+               "name":"needed_by",
+               "type":5,
+               "value":"Today",
+               "order":200
+            },
+            {
+               "question_text":"Business Justification",
+               "name":"business_justification",
+               "type":2,
+               "value":"Example justification",
+               "order":200
+            }
+         ]
+       
+      }
+   ]
+}
+console.log(jsonData);
+console.log(jsonData.records);
+console.log(jsonData.records[0]);
+console.log(jsonData.records[0].variables);
+console.log(jsonData.records[0].variables[0]);
+console.log(jsonData.records[0].variables[0].value);
+console.log(jsonData.records[0].variables[0].value[1]);
+console.log(jsonData.records[0].variables[0].value[1].storage);
+console.log(jsonData.records[0].variables[0].value[1].device_type);
+
+let type = jsonData.records[0].variables[0].value[1].device_type;
+let color = jsonData.records[0].variables[0].value[1].color;
+let quantity = jsonData.records[0].variables[0].value[1].quantity;
+let storage = jsonData.records[0].variables[0].value[1].storage;
+
+
+
+    document.getElementById("title_1").innerHTML = "Type " + " : " + type;
+    document.getElementById("description_1").innerHTML = "quantity " + " : " + quantity;
+    document.getElementById("title_2").innerHTML = "color " + " : " + color;
+    document.getElementById("description_2").innerHTML = "storage " + ":" + storage;
+  </script>
+</body>
+
+</html>
